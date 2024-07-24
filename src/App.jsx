@@ -1,6 +1,8 @@
-import { Col, Container, Row } from "react-bootstrap";
-import { NavbarComponen, ListCategories, Hasil } from "./components";
+/* eslint-disable no-unused-vars */
 import React, { Component } from "react";
+import { Col, Container, Row } from "react-bootstrap";
+import { NavbarComponen, ListCategories, Hasil, Menus } from "./components";
+
 import { API_URL } from "./utils/constans";
 import axios from "axios";
 
@@ -38,14 +40,7 @@ export default class App extends Component {
                     <strong>Daftar Produk</strong>
                   </h5>
                   <hr />
-                  <Row>
-                    {menus &&
-                      menus.map((menu) => (
-                        <>
-                          <h2>{menu.harga}</h2>
-                        </>
-                      ))}
-                  </Row>
+                  <Row>{menus && menus.map((menu) => <Menus key={menu.id} menu={menu} />)}</Row>
                 </Col>
                 <Hasil />
               </Row>
